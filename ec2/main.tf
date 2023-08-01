@@ -18,45 +18,14 @@ variable instances{
               name = "mongodb"
         }
 
-        catalogue = {
-             instance_type = "t3.micro"
-             name = "catalogue"
-        }
-
-        mysql = {
-             instance_type = "t3.micro"
-             name = "mysql"
-        }
-
-        cart = {
-             instance_type = "t3.micro"
-             name = "cart"
-        }
-
-        shipping = {
-             instance_type = "t3.micro"
-             name = "shipping"
-        }
-
-        redis = {
-             instance_type = "t3.micro"
-             name = "redis"
-        }
-
-        rabbitmq = {
-             instance_type = "t3.micro"
-             name = "rabbitmq"
-        }
-
-        dispatch = {
-             instance_type = "t3.micro"
-             name = "dispatch"
-        }
-
-        user = {
-             instance_type = "t3.micro"
-             name = "user"
-        }
+        
 
     }
+}
+
+output "sg.id_ec2" {
+  value = module.ec2.sg.id
+}
+output "publicid_ec2" {
+  value = aws_instance.web.publicid
 }

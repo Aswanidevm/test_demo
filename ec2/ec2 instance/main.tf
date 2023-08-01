@@ -20,6 +20,7 @@ resource "aws_security_group" "sg" {
   ingress {
     description      = "SSH"
     from_port        = 22
+
     to_port          = 22
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
@@ -39,5 +40,13 @@ resource "aws_security_group" "sg" {
   }
 }
 
+output "sg.id" {
+
+  value = [aws_security_group.sg.id]
+}
+
+output "publicid" {
+  value = aws_instance.web.public_ip
+}
 variable "instance_type"{}
 variable "component"{}
