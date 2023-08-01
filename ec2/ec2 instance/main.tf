@@ -1,7 +1,6 @@
 data "aws_ami" "ec2" {
   most_recent = true
   owners      = ["973714476881"]
-  region = "us-east-1"
   name = "Centos-8-DevOps-Practice"
 }
 
