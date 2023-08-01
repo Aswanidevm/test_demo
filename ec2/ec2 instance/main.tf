@@ -54,8 +54,6 @@ resource "aws_security_group" "sg" {
   }
 }
 
-output "publicid" {
-  value = aws_instance.web.public_ip
-}
+
 variable "instance_type"{}
 variable "component"{}
