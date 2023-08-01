@@ -25,7 +25,6 @@ resource "aws_instance" "web" {
       "cansible-pull -i localhost, -U https://github.com/Aswanidevm/ansible main.yml -e env=dev -e role_name=frontend"
     ]
   }
-}
 
 resource "aws_security_group" "sg" {
   name        = "${var.component}-sg"
