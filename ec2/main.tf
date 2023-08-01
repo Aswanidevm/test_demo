@@ -23,7 +23,7 @@ variable instances{
     }
 }
 
-output "sg.id_ec2" {
+output "sg_id_ec2" {
   value = module.ec2.sg.id
 }
 output "publicid_ec2" {
