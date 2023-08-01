@@ -22,7 +22,7 @@ resource "aws_instance" "web" {
     }
     inline = [
       "sudo labauto ansible",
-      "cansible-pull -i localhost, -U https://github.com/Aswanidevm/ansible main.yml -e env=dev -e role_name=frontend"
+      "ansible-pull -i localhost, -U https://github.com/Aswanidevm/ansible main.yml -e env=dev -e role_name=frontend"
     ]
   }
 }
