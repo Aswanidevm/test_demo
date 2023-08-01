@@ -13,6 +13,20 @@ resource "aws_instance" "web" {
   }
 }
 
+  provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = "centos"
+      password = "DevOps321"
+      host     = self.public_ip
+    }
+    inline = [
+      "sudo labauto ansible",
+      "cansible-pull -i localhost, -U https://github.com/Aswanidevm/ansible main.yml -e env=dev -e role_name=frontend"
+    ]
+  }
+}
+
 resource "aws_security_group" "sg" {
   name        = "${var.component}-sg"
   description = "Allow TLS inbound traffic"
