@@ -22,7 +22,3 @@ variable instances{
 
     }
 }
-
-output "publicid_ec2" {
-  value = module.ec2.public_id
-}
