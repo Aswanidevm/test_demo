@@ -24,8 +24,8 @@ variable instances{
 }
 
 output "sg_id_ec2" {
-  value = module.ec2.sg.id
+  value = module.ec2.sg_id
 }
 output "publicid_ec2" {
-  value = aws_instance.web.publicid
+  value = module.ec2.publicid
 }
