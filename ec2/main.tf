@@ -23,9 +23,6 @@ variable instances{
     }
 }
 
-output "sg_id_ec2" {
-  value = module.ec2.sg_id
-}
 output "publicid_ec2" {
-  value = module.ec2.publicid
+  value = module.ec2.public_id
 }
