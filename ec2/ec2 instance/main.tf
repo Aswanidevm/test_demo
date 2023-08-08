@@ -11,7 +11,9 @@ resource "aws_instance" "web" {
   tags = {
     Name = var.component
   }
-
+}
+resource "null_resource" "ansible"{
+  depends_on = [aws_instance.web, aws_route53_record.wwww]
   provisioner "remote-exec" {
 
     connection {
@@ -27,6 +29,7 @@ resource "aws_instance" "web" {
   }
 }
 resource "aws_security_group" "sg" {
+
   name        = "${var.component}-sg"
   description = "Allow TLS inbound traffic"
 
@@ -51,6 +54,13 @@ resource "aws_security_group" "sg" {
   tags = {
     Name = "allow_tls"
   }
+}
+resource "aws_route53_record" "wwww" {
+  zone_id = "Z04818282BOE8RVGV13K7"
+  name    = "${var.component}.myprojecdevops.info"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.ec2.private_ip]
 }
 
 
