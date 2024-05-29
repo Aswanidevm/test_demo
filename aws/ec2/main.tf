@@ -1,5 +1,5 @@
 module "ec2" {
-    source ="./ec2 instance"
+    source ="ec2 instance"
     for_each = var.instances
     component =  each.value["name"]
     instance_type = lookup(each.value, "instance_type", "t2.micro" )
