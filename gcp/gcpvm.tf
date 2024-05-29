@@ -1,20 +1,16 @@
-resource "google_service_account" "default" {
-  account_id   = "jmc-devsecops"
-  display_name = "Custom SA for VM Instance"
-}
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "vm" {
   name         = "my-instance"
   machine_type = "n2-standard-2"
-  zone         = "us-central1-a"
+  zone         = "asia-=south1-a"
 
-  tags = ["foo", "bar"]3
+  tags = ["foo", "bar"]
 
 
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-11"
-      labels = {
+    boot_disk {
+      initialize_params {
+        image = "debian-cloud/debian-11"
+        labels = {
         my_label = "value"
       }
     }
@@ -41,7 +37,7 @@ resource "google_compute_instance" "default" {
 
   service_account {
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.default.email
+    email  = "sa-iap-proxy-accessor@jmc-devsecops.iam.gserviceaccount.com"
     scopes = ["cloud-platform"]
   }
 }
