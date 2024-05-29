@@ -2,7 +2,7 @@
 resource "google_compute_instance" "vm" {
   name         = "my-instance"
   machine_type = "n2-standard-2"
-  zone         = "asia-=south1-a"
+  zone         = "asia-south1-a"
 
   tags = ["foo", "bar"]
 
