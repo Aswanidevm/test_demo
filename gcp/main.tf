@@ -1,4 +1,3 @@
-
 resource "google_compute_instance" "vm" {
   name         = "my-instance"
   machine_type = "n2-standard-2"
@@ -40,4 +39,8 @@ resource "google_compute_instance" "vm" {
     email  = "sa-iap-proxy-accessor@jmc-devsecops.iam.gserviceaccount.com"
     scopes = ["cloud-platform"]
   }
+}
+resource "google_compute_network" "vpc_network" {
+  name                    = "terraform-network"
+  auto_create_subnetworks = "true"
 }
